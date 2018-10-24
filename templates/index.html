@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Great Name Game 2018 10 03 Cheung A</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container">
+        <div class="text-center">
+            <h1>Welcome to the Great Number Game!</h1>
+            <h4>I am thinking of a number between 1 and 100</h4>
+            <h4>Take a guess by</h4>
+            <h4>enter a number below and then hit enter</h4>
+            <hr class="mb-4">
+            <form action="/" method='post'>            
+                <input type="text" name="guesstaken">
+            </form> 
+            <hr class="mb-4">
+            <!-- <p class="{{session['class_color']}}">{{session['guess']}}</p> -->
+            {% if session['guess']=="0" %}
+                <p></p>
+            {% endif %}
+            {% if session['guess']=="1" %}
+            <div class="row">
+                <div class="col-md-4"></div>
+                <div class="col-md-4">
+                    <p class="bg-danger">Too High</p>
+                    <p>Try again</p>
+                </div>
+                <div class="col-md-4"></div>
+            </div>
+            {% endif %}
+            {% if session['guess']=="2" %}
+            <div class="row">
+                <div class="col-md-4"></div>
+                <div class="col-md-4">
+                    <p class="bg-danger">Too Low</p>
+                    <p>Try again</p>
+                </div>
+                <div class="col-md-4"></div>
+            </div>
+            {% endif %}
+            {% if session['guess']=="3" %}
+            <div class="row">
+                <div class="col-md-4"></div>
+                <div class="col-md-4">
+                    <p class="bg-success">{{session['bingo']}} was the number!</p>
+                    <a href="/clear" class="btn btn-info btn-lg btn-block">Play Again!</a>    
+                </div>
+                <div class="col-md-4"></div>
+            </div>
+            {% endif %}
+        </div>
+
+           
+        <!-- <h2>{{session['cnt']}} times</h2> -->
+        <!-- <div class="col-md-4">
+            <hr class="mb-4">
+            <a href="/" class="btn btn-info btn-lg btn-block">Add to count</a>    
+        </div>
+        <div class="col-md-4">
+            <hr class="mb-4">
+            <a href="/clear" class="btn btn-success btn-lg btn-block">Clear</a>    
+        </div> -->
+        
+    </div>
+
+</body>
+</html>
